@@ -1,0 +1,27 @@
+body {
+  background-image: url("../images/background-image.jpg");
+
+
+
+}
+
+
+
+#main-content {
+
+   font-family: 'Titillium Web', sans-serif;
+
+   border: 5px solid red;
+
+}
+
+#logo {
+  width: 10%;
+}
+
+
+.font-color {
+  color: white;
+ 
+}
+
