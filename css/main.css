@@ -11,17 +11,32 @@ body {
 
    font-family: 'Titillium Web', sans-serif;
 
-   border: 5px solid red;
+   /*border: 5px solid red;*/
+   margin-top: 10%;
+   color: white;
 
 }
 
 #logo {
-  width: 10%;
+  width: 20%;
 }
 
+#search {
+	margin-right: 5%;
+	margin-top: 5%;
+}
+
+/*button {
+	background-color: blue;
+}
+*/
 
 .font-color {
   color: white;
  
+}
+
+.border-test {
+	border: 5px solid red;
 }
 
