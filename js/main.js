@@ -22,44 +22,113 @@
 
 
 
-// "https://en.wikipedia.org/w/api.php?action=query&titles=" + searchTerm + "&prop=revisions&rvprop=content&format=jsonfm"
 
-	
 
 
 
 function search() {
 
-	var searchTerm = document.getElementById("search-term").value;
-
-	var xhr = new XMLHttpRequest();
-	var json;
+		var searchTerm = document.getElementById("search-term").value;
 
 
 
+		//NEED TO RESEARCH MORE ABOUT JSONP AND CROSS SITE CALLS
 
-    xhr.onreadystatechange = function() {
+		var apiUrl = "https://en.wikipedia.org/w/api.php";
 
-        if (xhr.readyState === 4 && xhr.status === 200){
+		$.ajax({url: apiUrl,
+		        dataType: 'jsonp',
+		        jsonp: 'callback',
+		        data: {action: 'opensearch',
+		               search: searchTerm,
+		               limit: 5,
+		               format: 'json'},
+		        success: function(response) {
 
-        	
-            json = JSON.parse(xhr.responseText);
-            console.log(json);
- 
+		          // Now you have search results!
+		          console.log(response);
+
+		        }
+		});
 
 
-        }
-
-    };
-
-    xhr.open("GET","https://en.wikipedia.org/w/api.php?action=query&titles=" + searchTerm + "&prop=revisions&rvprop=content&format=json"
-, true);
-    xhr.setRequestHeader( 'Api-User-Agent', 'Example/1.0' );
-    xhr.send();
-
+		searchResults();
 
 
 }
+
+
+// https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+
+function searchResults() {
+
+	var resultsSection = document.getElementById("results-section");
+
+	var resultDiv = document.createElement("div");
+
+
+	resultDiv.setAttribute("id", "test");
+
+	resultDiv.style.width = "100px";
+	resultDiv.style.height = "100px";
+	resultDiv.style.background = "red";
+
+
+	var para = document.createElement("p");
+	var node = document.createTextNode("This should go here");
+	para.appendChild(node);
+
+
+	var element = document.getElementById("test");
+    element.appendChild(para);
+
+    console.log(element);
+
+
+
+
+    alert('test');
+
+
+}
+
+
+	
+
+
+
+// function search() {
+
+// 	var searchTerm = document.getElementById("search-term").value;
+
+// 	var xhr = new XMLHttpRequest();
+// 	var json;
+
+
+
+
+//     xhr.onreadystatechange = function() {
+
+//         if (xhr.readyState === 4 && xhr.status === 200){
+
+        	
+//             json = JSON.parse(xhr.responseText);
+//             console.log(json);
+ 
+
+
+//         }
+
+//     };
+
+//     xhr.open("GET","https://en.wikipedia.org/w/api.php?action=query&titles=" + searchTerm + "&prop=revisions&rvprop=content&format=json"
+// , true);
+//     xhr.setRequestHeader( 'Api-User-Agent', 'Example/1.0' );
+//     xhr.send();
+
+
+
+// }
 
 
 // function search() {
