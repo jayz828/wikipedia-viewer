@@ -48,11 +48,13 @@ function search() {
 		          // Now you have search results!
 		          console.log(response);
 
+		          searchResults(response);
+
 		        }
 		});
 
 
-		searchResults();
+		
 
 
 }
@@ -60,7 +62,21 @@ function search() {
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
 
-function searchResults() {
+function searchResults(termsArray) {
+
+
+	// LOOP THROUGH TERMS TO DISPLAY THEM IN EACH TILE
+
+	// CLEAR RESULTS AFTER NEW SEARCH
+
+
+
+	var resultsTermArray = termsArray[1];
+	var resultsDefinitionArray = termsArray[2];
+	console.log(resultsDefinitionArray);
+
+
+
 
 	var resultsSection = document.getElementById("results-section");
 
@@ -74,20 +90,38 @@ function searchResults() {
 	resultDiv.style.background = "red";
 
 
-	var para = document.createElement("p");
-	var node = document.createTextNode("This should go here");
-	para.appendChild(node);
+	// var para = document.createElement("p");
+	// var node = document.createTextNode("This should go here");
+	// para.appendChild(node);
 
 
-	var element = document.getElementById("test");
-    element.appendChild(para);
+	// Create div element
+	var newDiv = document.createElement("div");
 
-    console.log(element);
+	// Create h4 element
+	var term = document.createElement("h4");
+
+
+	// Add the h4 to the div tag
+	newDiv.appendChild(term);
+
+	// Add title term to div
+	var termText = document.createTextNode(resultsTermArray[0]);
+
+	term.appendChild(termText);
+
+	newDiv.setAttribute("class", "result-tile");
+
+
+
+	var newText = document.createTextNode(resultsDefinitionArray[0]);
+	resultsSection.appendChild(newDiv);
+	newDiv.appendChild(newText);
 
 
 
 
-    alert('test');
+
 
 
 }
@@ -95,74 +129,6 @@ function searchResults() {
 
 	
 
-
-
-// function search() {
-
-// 	var searchTerm = document.getElementById("search-term").value;
-
-// 	var xhr = new XMLHttpRequest();
-// 	var json;
-
-
-
-
-//     xhr.onreadystatechange = function() {
-
-//         if (xhr.readyState === 4 && xhr.status === 200){
-
-        	
-//             json = JSON.parse(xhr.responseText);
-//             console.log(json);
- 
-
-
-//         }
-
-//     };
-
-//     xhr.open("GET","https://en.wikipedia.org/w/api.php?action=query&titles=" + searchTerm + "&prop=revisions&rvprop=content&format=json"
-// , true);
-//     xhr.setRequestHeader( 'Api-User-Agent', 'Example/1.0' );
-//     xhr.send();
-
-
-
-// }
-
-
-// function search() {
-
-// 	var searchTerm = document.getElementById("search-term").value;
-
-// 	// Using XMLHttpRequest
-// 	var xhr = new XMLHttpRequest();
-// xhr.setRequestHeader( 'Api-User-Agent', 'Example/1.0' );
-
-// // Using jQuery
-// $.ajax( {
-//     url: "https://en.wikipedia.org/w/api.php?action=query&titles=" + searchTerm + "&prop=revisions&rvprop=content&format=json",
-//     data: queryData,
-//     dataType: 'json',
-//     type: 'POST',
-//     headers: { 'Api-User-Agent': 'Example/1.0' },
-//     success: function(data) {
-//        // do something with data
-//        console.log(data);
-//     }
-// } );
-
-// // Using mw.Api, specify it when creating the mw.Api object
-// var api = new mw.Api( {
-//     ajax: {
-//         headers: { 'Api-User-Agent': 'Example/1.0' }
-//     }
-// } );
-// // api.get( {...} ).done(function(data) {
-// //     // do something with data
-// // });
-
-// }
 
 
 
