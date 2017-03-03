@@ -53,11 +53,16 @@ body {
   height: 200px;
   background-color: #fcf4f4;
   color: black;
+  padding: 10px;
 
 }
 
     .result-tile h4 {
       text-align: left;
       margin-left: 10px;
+    }
+
+    .result-tile p {
+      text-align: left;
     }
 

@@ -82,6 +82,8 @@ function searchResults(termsArray) {
 
 	console.log(resultsDefinitionArray);
 
+	var resultsLinksArray = termsArray[3];
+
 
 
 
@@ -90,11 +92,7 @@ function searchResults(termsArray) {
 	var resultDiv = document.createElement("div");
 
 
-	// resultDiv.setAttribute("id", "test");
 
-	// resultDiv.style.width = "100px";
-	// resultDiv.style.height = "100px";
-	// resultDiv.style.background = "red";
 
 
 	for (var i = 0; i < resultsTermArray.length; i++) { 
@@ -104,6 +102,14 @@ function searchResults(termsArray) {
 
 				// Create h4 element
 				var term = document.createElement("h4");
+
+				var description = document.createElement("p");
+
+				var link = document.createElement("a");
+
+				link.href = resultsLinksArray[i];
+				link.target = "_blank";
+				link.innerHTML = "Read more..."
 
 
 				// Add the h4 to the div tag
@@ -116,11 +122,16 @@ function searchResults(termsArray) {
 
 				newDiv.setAttribute("class", "result-tile");
 
+				newDiv.appendChild(description);
+
+				newDiv.appendChild(link);
+
 
 
 				var newText = document.createTextNode(resultsDefinitionArray[i]);
 				resultsSection.appendChild(newDiv);
-				newDiv.appendChild(newText);
+				// newDiv.appendChild(newText);
+				description.appendChild(newText);
 	
 	}
 
