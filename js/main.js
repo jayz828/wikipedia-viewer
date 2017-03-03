@@ -65,14 +65,21 @@ function search() {
 function searchResults(termsArray) {
 
 
+
+
+
 	// LOOP THROUGH TERMS TO DISPLAY THEM IN EACH TILE
 
 	// CLEAR RESULTS AFTER NEW SEARCH
 
 
 
-	var resultsTermArray = termsArray[1];
+	var resultsTermArray = termsArray[1]; // This is an array
+	console.log(resultsTermArray.length);
+
 	var resultsDefinitionArray = termsArray[2];
+	console.log(resultsDefinitionArray.length);
+
 	console.log(resultsDefinitionArray);
 
 
@@ -83,40 +90,42 @@ function searchResults(termsArray) {
 	var resultDiv = document.createElement("div");
 
 
-	resultDiv.setAttribute("id", "test");
+	// resultDiv.setAttribute("id", "test");
 
-	resultDiv.style.width = "100px";
-	resultDiv.style.height = "100px";
-	resultDiv.style.background = "red";
-
-
-	// var para = document.createElement("p");
-	// var node = document.createTextNode("This should go here");
-	// para.appendChild(node);
+	// resultDiv.style.width = "100px";
+	// resultDiv.style.height = "100px";
+	// resultDiv.style.background = "red";
 
 
-	// Create div element
-	var newDiv = document.createElement("div");
+	for (var i = 0; i < resultsTermArray.length; i++) { 
+    	
+			    // Create div element
+				var newDiv = document.createElement("div");
 
-	// Create h4 element
-	var term = document.createElement("h4");
+				// Create h4 element
+				var term = document.createElement("h4");
 
 
-	// Add the h4 to the div tag
-	newDiv.appendChild(term);
+				// Add the h4 to the div tag
+				newDiv.appendChild(term);
 
-	// Add title term to div
-	var termText = document.createTextNode(resultsTermArray[0]);
+				// Add title term to div
+				var termText = document.createTextNode(resultsTermArray[i]);
 
-	term.appendChild(termText);
+				term.appendChild(termText);
 
-	newDiv.setAttribute("class", "result-tile");
+				newDiv.setAttribute("class", "result-tile");
 
 
 
-	var newText = document.createTextNode(resultsDefinitionArray[0]);
-	resultsSection.appendChild(newDiv);
-	newDiv.appendChild(newText);
+				var newText = document.createTextNode(resultsDefinitionArray[i]);
+				resultsSection.appendChild(newDiv);
+				newDiv.appendChild(newText);
+	
+	}
+
+
+
 
 
 
@@ -125,6 +134,9 @@ function searchResults(termsArray) {
 
 
 }
+
+
+
 
 
 	
