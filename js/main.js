@@ -10,12 +10,26 @@
 
 	var searchBtn = document.getElementById("search-btn");
 	var randomBtn = document.getElementById("random-button");
+	var inputBox = document.getElementById("search-term");
 
+
+	// Event listeners
 	searchBtn.addEventListener("click", search);
 	randomBtn.addEventListener("click", function() {
 		var win = window.open("https://en.wikipedia.org/wiki/Special:Random", "_blank");
 		win.focus();
 	});
+
+
+	inputBox.addEventListener("keyup", function(event) {
+    event.preventDefault();
+	    if (event.keyCode == 13) {
+	        searchBtn.click();
+	    }
+	});
+
+
+
 
 
 
@@ -62,6 +76,10 @@ function search() {
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
 
+
+// Loading graphic
+// ssshttp://stackoverflow.com/questions/1964839/how-can-i-create-a-please-wait-loading-animation-using-jquery
+
 function searchResults(termsArray) {
 
 
@@ -71,6 +89,8 @@ function searchResults(termsArray) {
 	// LOOP THROUGH TERMS TO DISPLAY THEM IN EACH TILE
 
 	// CLEAR RESULTS AFTER NEW SEARCH
+
+
 
 
 
@@ -88,6 +108,11 @@ function searchResults(termsArray) {
 
 
 	var resultsSection = document.getElementById("results-section");
+
+
+	while (resultsSection.hasChildNodes()) {
+  		resultsSection.removeChild(resultsSection.lastChild);
+	}
 
 	var resultDiv = document.createElement("div");
 
