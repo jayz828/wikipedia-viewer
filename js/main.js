@@ -25,6 +25,7 @@
     event.preventDefault();
 	    if (event.keyCode == 13) {
 	        searchBtn.click();
+	        inputBox.blur();
 	    }
 	});
 
